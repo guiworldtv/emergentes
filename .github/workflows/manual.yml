@@ -27,7 +27,7 @@ jobs:
         run: |-
           if [[ `git status --porcelain` ]]; then
             git config user.name "guiworldtv"
-            git config user.email "guilhermemartinstv@gmail.com"
+            git config user.email "guilhermemartinstv@hotmail.com"
             git add -A
             git commit -m "Adicionar dados mais recentes"
             git push
