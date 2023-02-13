@@ -1,16 +1,16 @@
 # This is a basic workflow to help you get started with Actions
 
-name: scrape news
+name: Scrape News
 
 # Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
+  # Permite executar o workflow manualmente na aba Actions
   workflow_dispatch:
   schedule:
-    - cron: '0,15,30,45 12-23 * * *'
+    - cron: '0 12-23/15 * * *'
     
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Um workflow é composto por um ou mais trabalhos que podem ser executados sequencialmente ou em paralelo
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -19,16 +19,16 @@ jobs:
       
 
         
-      - name: Fetch latest data
+      - name: Obter dados mais recentes
         run: python teste1.py
       
         
-      - name: Commit data
+      - name: Commitar dados
         run: |-
           if [[ `git status --porcelain` ]]; then
-            git config user.name github-actions
-            git config user.email github-actions@github.com
+            git config user.name "GitHub Actions"
+            git config user.email "github-actions@github.com"
             git add -A
-            git commit -m "add latest data"
+            git commit -m "Adicionar dados mais recentes"
             git push
           fi
